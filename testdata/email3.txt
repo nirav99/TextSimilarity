@@ -1,0 +1,46 @@
+Hello ,
+I came across your details from our database search and wanted to share this project opportunity.
+ 
+Please let me know if you are interested in this requirement. If yes, kindly send us your resume along with contact information. If you are not looking for new projects, please feel free to pass on this email to your friends or relatives who might be interested.
+ 
+Job Title : Data Scientist
+Location : Pasadena CA
+Duration : Fulltime
+Send resumes at alvin_paul@aesinc.us.com
+ 
+ 
+USC or GC
+ 
+Job description
+Client’s Product team is looking for a Data Scientist to join us in Pasadena, CA. Client is at a transformative inflection point, creating breakthrough solutions that simplify the lives of consumers and businesses. The ways in which people search and connect using technology are rapidly evolving, and Client is building new products to stimulate change and amplify these trends. We encourage enthusiastic individuals who are comfortable working in a highly collaborative and dynamic work environment to apply.
+ 
+As a Data Scientist at Client, you will have the unique opportunity of combining programming, algorithms, and an understanding of human behavior for getting answers to interesting human questions from data. You will be responsible for deep-diving into a variety of data sets and finding nuggets of insight that inform product development on our most valuable asset: people data. This includes leveraging data mining approaches to systematically recognize patterns, as well as informing data cleaning, search-ability, and identity resolution. You will work closely with the VP of Product and backend engineers. You should be open to new challenges, extremely good at multi-tasking, innovative, a creative thinker, self-directed, and a collaborative team player.
+ 
+Day-to-Day Tasks Of The Position Include
+•             Extract insights from data sets for product development, identifying strategic opportunities
+•             Design and evaluate experiments using algorithmic, mining, and statistical techniques
+•             Leverage data munging approaches and handle imperfections in data: missing values, inconsistent formats, etc.
+•             Apply scientific approaches that iteratively improve our people data and identity resolution, validating your findings using an experimental and iterative approach
+•             Benchmark and track changes to key people data metrics
+•             Use data visualization and communication tools that summarize findings for technical and non-technical audiences
+ 
+Desired Skills And Experience
+•             Ph.D. or Master’s degree in Computer Science, Mathematics, Statistics, or related quantitative discipline
+•             5+ years experience, especially in companies with massive data sets (billions of records)
+•             Experience with statistical analysis environments, like R or MATLAB
+•             Familiarity with a database querying language, like SQL
+•             Data mining approaches: association, classification, clustering, sequence or path analysis
+•             Should be familiar with statistical tests, distributions, maximum likelihood estimators, etc.
+•             Experience with machine learning methods: k-nearest neighbors, random forests, etc.
+•             Quick learner and self-motivated, working through concepts with minimal guidance
+•             Excellent verbal, written, and interpersonal communication skills
+ 
+ 
+Thanks and Regards
+ 
+Alvin  Paul
+Ph: 972-427-1873||Fax: (630) 206-2397
+Agile Enterprise Solutions Inc || "Ensuring Client's Success"|| 
+Email: alvin_paul@aesinc.us.com||www.aesinc.us.com
+ 
+Note : If you have received this mail in error or prefer not to receive such emails in the future, please reply with "REMOVE" in the subject line and the email id(s) to be removed. All removal requests will be honored ASAP. We sincerely apologize for any inconvenience caused
