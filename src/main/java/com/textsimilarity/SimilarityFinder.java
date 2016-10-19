@@ -60,7 +60,10 @@ public class SimilarityFinder
       System.out.println(textFile2);
     }
     
-    CosineSimilarity cosineSim = new CosineSimilarity(textFile1, textFile2);
+    WordFrequency wfDoc1 = new WordFrequency(textFile1);
+    WordFrequency wfDoc2 = new WordFrequency(textFile2);
+    
+    CosineSimilarity cosineSim = new CosineSimilarity(wfDoc1, wfDoc2);
     
     long startTime = System.currentTimeMillis();
     double similarityValue = cosineSim.getSimilarity();

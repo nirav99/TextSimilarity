@@ -8,31 +8,31 @@ import java.util.*;
  */
 public class CosineSimilarity
 {
-  private String[] text1Words;
-  private String[] text2Words;
+  private WordFrequency wfDoc1;
+  private WordFrequency wfDoc2;
   
   private HashMap<String, Integer> vocabulary;
   
   public static boolean DEBUG_MODE = false;
   
-  public CosineSimilarity(String text1, String text2)
+  public CosineSimilarity(WordFrequency doc1, WordFrequency doc2)
   {
-    this.text1Words = text1.split("\\s+");
-    this.text2Words = text2.split("\\s+");
+    this.wfDoc1 = doc1;
+    this.wfDoc2 = doc2;
   }
   
   public double getSimilarity()
   { 
     buildVocabulary();
-    double[] titleVector = getVector(text1Words);
-    double[] nameVector = getVector(text2Words);
+    double[] doc1Vector = getVector(wfDoc1);
+    double[] doc2Vector = getVector(wfDoc2);
     
     double numerator = 0;
     
-    for(int i = 0; i < titleVector.length; i++)
-      numerator = numerator + ((titleVector[i]) * (nameVector[i]));
+    for(int i = 0; i < doc1Vector.length; i++)
+      numerator = numerator + ((doc1Vector[i]) * (doc2Vector[i]));
     
-    double denominator = getNormOfVector(titleVector) * getNormOfVector(nameVector);
+    double denominator = getNormOfVector(doc1Vector) * getNormOfVector(doc2Vector);
     double similarity = (denominator > 0) ? 1.0 * numerator / denominator : 0;
 
     return similarity;
@@ -44,30 +44,29 @@ public class CosineSimilarity
   private void buildVocabulary()
   {
     vocabulary = new HashMap<String, Integer>();
-    addWordsToVocabulary(this.text1Words);
-    addWordsToVocabulary(this.text2Words);
+    addWordsToVocabulary(this.wfDoc1);
+    addWordsToVocabulary(this.wfDoc2);
   }
   
   /**
    * Make words lowercase and add to vocabulary
    * @param words
    */
-  private void addWordsToVocabulary(String[] words)
+  private void addWordsToVocabulary(WordFrequency wfDoc)
   {
-    String formattedWord;
     Integer value;
     int index = vocabulary.size();
     
-    for(String word : words)
-    {
-      formattedWord = word.toLowerCase();
-      
-      if(doesWordContainAlphaNumeric(formattedWord))
+    Set<String> wordSet = wfDoc.wordSet();
+    
+    for(String word : wordSet)
+    {      
+      if(doesWordContainAlphaNumeric(word))
       {
-        value = vocabulary.get(formattedWord);
+        value = vocabulary.get(word);
       
         if(value == null)
-          vocabulary.put(formattedWord, index++);
+          vocabulary.put(word, index++);
       }
     }
   }
@@ -78,16 +77,16 @@ public class CosineSimilarity
    * @param words
    * @return
    */
-  private double[] getVector(String[] words)
+  private double[] getVector(WordFrequency wfDoc)
   { 
     Integer index;
     String formattedWord;
     
     double[] vector = new double[vocabulary.size()];
-    double weight = 1.0; // Assume each word has the same weight for simplicity
+    double weight;
     
-    
-    for(String word : words)
+    Set<String> wordSet = wfDoc.wordSet();
+    for(String word : wordSet)
     {
       formattedWord = word.toLowerCase();
       
@@ -97,7 +96,9 @@ public class CosineSimilarity
       index = vocabulary.get(formattedWord);
       
       if(DEBUG_MODE) System.out.println("Word = " + word + " formatted word = " + formattedWord + " Index = " + index);
-      vector[index] = weight;
+      
+      // We use normalized frequency of the word as the weight of the word.
+      vector[index] = wfDoc.normalizedFrequency(word);
     }
     
     return vector;
