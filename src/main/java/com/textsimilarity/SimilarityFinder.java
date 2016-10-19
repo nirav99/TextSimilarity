@@ -112,7 +112,9 @@ public class SimilarityFinder
   
   private String removePunctuations(String content)
   {
-    String newContent = content.replaceAll("(?i)https?.*?\\s", " ");
+    // Remove http urls, urls starting with www and email addresses.
+    String newContent = content.replaceAll("(?i)https?.*?\\s", " ").replaceAll("[A-Z0-9a-z\\._%+-]+@[A-Za-z0-9\\.-]+\\.[A-Za-z]{2,4}", " ");
+    newContent = newContent.replaceAll("(?i)www\\d?\\.([A-Za-z0-9]+\\.){1,}[a-zA-Z]{2,6}", " ");
     newContent = newContent.replaceAll("[\\?;:<>!#\\(\\)\\[\\]\\{\\}\"^~/]+", " ");
     newContent = newContent.replaceAll("[\\.,](?!\\d)", " ");
     newContent = newContent.replaceAll("(?<!\\d)[\\.,]", " ");
@@ -140,7 +142,7 @@ public class SimilarityFinder
       {
         tag = word.substring(lastIndexOfUnderscore + 1);
       
-        if(shouldAddWordWithSpecifiedPOSTag(tag))
+        if(shouldAddWord(word, tag))
           result.append(word.substring(0, lastIndexOfUnderscore)).append(" ");
       }
       else
@@ -151,15 +153,17 @@ public class SimilarityFinder
   
   /**
    * Discard words that are conjunctions, prepositions etc.
+   * Discard email addresses etc
    * @param tagName
    * @return
    */
-  private boolean shouldAddWordWithSpecifiedPOSTag(String tagName)
+  private boolean shouldAddWord(String word, String tagName)
   {
     if(tagName.equals("CC") || tagName.equals("DT") || tagName.equals("EX") || tagName.equals("IN") ||
        tagName.equals("POS") || tagName.equals("TO") || tagName.equals("SYM") || tagName.equals("UH") ||
        tagName.equals("WP")  || tagName.equals("CD") || tagName.equals("NNP"))
     return false;
+    
     return true;
   }
 }
