@@ -69,11 +69,14 @@ public class SimilarityFinder
     double similarityValue = cosineSim.getSimilarity();
     long endTime = System.currentTimeMillis();
     
+    System.out.format("Cosine Similarity : %.3f, Angle between the vectors : %.3f degrees\n", similarityValue, Math.toDegrees(Math.acos(similarityValue)));
+
+    /*
     if(similarityValue >= SIMILARITY_THRESHOLD)
       System.out.format("Score : %.3f, Files are similar\n", similarityValue);
     else
       System.out.format("Score : %.3f, No similarity found\n", similarityValue);
-    
+    */
     System.out.format("Processing time : %.4f sec\n\n\n", 1.0 * (endTime - startTime) / 1000.0);
   }
   
